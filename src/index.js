@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MyComponent from './MyComponent'
 import TimerTrigger from './Frontend/Components/TimerTrigger/TimerTrigger'
+import UserSurvey from './Frontend/Components/UserSurvey/UserSurvey'
 
 // class MyComponent extends React.Component {
 //   render() {
@@ -19,6 +20,7 @@ const App = () => {
       <h1>My title</h1>
       <h4>Another one</h4>
       <MyComponent></MyComponent>
+      <UserSurvey></UserSurvey>
     </div>
   );
 }
