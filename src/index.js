@@ -5,11 +5,20 @@ import TimerTrigger from './Frontend/Components/TimerTrigger/TimerTrigger'
 import UserSurvey from './Frontend/Components/UserSurvey/UserSurvey'
 import WebsiteModal from './Frontend/Components/WebsiteModal/WebsiteModal'
 
+let surveyID = "not found"
+
+const foo = () => {
+  if (document.getElementById("embedID")) {
+    surveyID = document.getElementById("embedID").getAttribute("data-name");
+  }  
+}
+foo()
+
 const App = () => {
   return (
     <div className="App">
       <h1>Very basic HTML page</h1>
-      <WebsiteModal></WebsiteModal>
+      <WebsiteModal id={surveyID}></WebsiteModal>
     </div>
   );
 }

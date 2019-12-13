@@ -10,22 +10,6 @@ const axios = require('axios')
 
 let surveyQuestion = 'Error: survey not found';
 
-const setSurveyTitle = (id) => {
-  axios.get('http://localhost:3005/api/embed/' + id)
-  .then(response => {
-    if (response.data) {
-      console.log("survey response contents: " + JSON.stringify(response.data))
-      response.data.questions.map(element => {
-        surveyQuestion = element.prompt
-      })
-    }
-  })
-  .catch(error => {
-    console.log(error);
-  });
-}
-//setSurveyTitle('5dec493cf525a2415c89c290')
-
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
@@ -40,7 +24,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function TransitionsModal() {
+export default function TransitionsModal(props) {
+  const survId = props.id;
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -62,7 +47,7 @@ export default function TransitionsModal() {
           }
     })
   }
-  update('5dec493cf525a2415c89c290')
+  update(survId)
 
   const handleClose = (starCount) => {
     console.log("The param is: " + starCount)
@@ -81,7 +66,7 @@ export default function TransitionsModal() {
     )
 
     var request = new XMLHttpRequest();
-    request.open('POST', 'http://localhost:3005/api/response/survey/5dec493cf525a2415c89c290', true);
+    request.open('POST', 'http://localhost:3005/api/response/survey/' + survId, true);
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     request.send(surveyResult);
 
@@ -90,6 +75,8 @@ export default function TransitionsModal() {
 
   return (      
     <div>
+      <h1>SurveyID: {survId}</h1>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
