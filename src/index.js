@@ -8,9 +8,7 @@ import WebsiteModal from './Frontend/Components/WebsiteModal/WebsiteModal'
 const App = () => {
   return (
     <div className="App">
-      <h1>My title</h1>
-      <h4>Another one</h4>
-      <MyComponent></MyComponent>
+      <h1>Very basic HTML page</h1>
       <WebsiteModal></WebsiteModal>
     </div>
   );

@@ -5,10 +5,10 @@ import Button from '@material-ui/core/Button';
 import StarRatingComponent from 'react-star-rating-component';
 import Tooltip from '@material-ui/core/Tooltip';
 import Rating from '@material-ui/lab/Rating';
+import { textAlign } from '@material-ui/system';
 
 const axios = require('axios')
 //const logo = require('../../Assets/guerillaSCM.png');
-
 
 const labels = {
   1: 'Useless',
@@ -25,12 +25,6 @@ function IconContainer(props) {
       <span {...other} />
     </Tooltip>
   );
-}
-
-function foo() {
-  console.log("WSKDJNKDSJNCSS")
-
-  //this.props.handleClose
 }
 
 class UserSurvey extends Component {  

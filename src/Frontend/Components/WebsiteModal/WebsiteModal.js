@@ -52,11 +52,7 @@ export default function TransitionsModal() {
   const [beenChanged, setBeenChanged] = React.useState(false)
 
   const update = (id) => {
-
-    console.log("UOSIDOSDIOINF")
     axios.get('http://localhost:3005/api/embed/' + id).then(response => {
-        console.log("API CALLED")
-
         if (response.data) {
             console.log("survey response contents: " + JSON.stringify(response.data))
             response.data.questions.map(element => {
@@ -66,7 +62,6 @@ export default function TransitionsModal() {
           }
     })
   }
-
   update('5dec493cf525a2415c89c290')
 
   const handleClose = (starCount) => {
@@ -95,8 +90,6 @@ export default function TransitionsModal() {
 
   return (      
     <div>
-        {beenChanged ? <button>Logout</button> : <button>Login</button>}
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
