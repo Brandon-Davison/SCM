@@ -54,9 +54,6 @@ class UserSurvey extends Component {
       <div className="UserSurvey">
         <body style={{backgroundColor: "#fffdd0", minHeight: "100vh"}}>
 
-            
-
-
           {/* Survey Question*/}
           <h1>Question: {this.props.question}</h1>
           <StarRatingComponent 
