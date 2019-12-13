@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MyComponent from './MyComponent'
+import TimerTrigger from './Frontend/Components/TimerTrigger/TimerTrigger'
 
 // class MyComponent extends React.Component {
 //   render() {
