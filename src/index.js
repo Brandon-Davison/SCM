@@ -17,7 +17,6 @@ foo()
 const App = () => {
   return (
     <div className="App">
-      <h1>Very basic HTML page</h1>
       <WebsiteModal id={surveyID}></WebsiteModal>
     </div>
   );
