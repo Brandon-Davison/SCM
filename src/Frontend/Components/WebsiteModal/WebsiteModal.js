@@ -75,8 +75,6 @@ export default function TransitionsModal(props) {
 
   return (      
     <div>
-      <h1>SurveyID: {survId}</h1>
-
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
