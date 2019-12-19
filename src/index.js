@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MyComponent from './MyComponent'
 import TimerTrigger from './Frontend/Components/TimerTrigger/TimerTrigger'
 import UserSurvey from './Frontend/Components/UserSurvey/UserSurvey'
 import WebsiteModal from './Frontend/Components/WebsiteModal/WebsiteModal'
@@ -17,7 +16,8 @@ foo()
 const App = () => {
   return (
     <div className="App">
-      <TimerTrigger timerLength={2} id={surveyID}></TimerTrigger>
+    <TimerTrigger timerLength={2} id={surveyID}></TimerTrigger>
+
     </div>
   );
 }

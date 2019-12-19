@@ -2,20 +2,27 @@ import React, {Component} from 'react';
 //import scmLogo from '../../Assets/guerillaSCM.png';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import StarRatingComponent from 'react-star-rating-component';
-import Tooltip from '@material-ui/core/Tooltip';
-import Rating from '@material-ui/lab/Rating';
 import { textAlign } from '@material-ui/system';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Rating from '@material-ui/lab/Rating';
+import Tooltip from '@material-ui/core/Tooltip';
+import Box from '@material-ui/core/Box';
 
 const axios = require('axios')
 //const logo = require('../../Assets/guerillaSCM.png');
 
 const labels = {
-  1: 'Useless',
-  2: 'Poor',
-  3: 'Ok',
-  4: 'Good',
-  5: 'Excellent',
+  0.5: 'Useless',
+  1: 'Useless+',
+  1.5: 'Poor',
+  2: 'Poor+',
+  2.5: 'Ok',
+  3: 'Ok+',
+  3.5: 'Good',
+  4: 'Good+',
+  4.5: 'Excellent',
+  5: 'Excellent+',
 };
 
 function IconContainer(props) {
@@ -26,6 +33,18 @@ function IconContainer(props) {
     </Tooltip>
   );
 }
+
+IconContainer.propTypes = {
+  value: PropTypes.number.isRequired,
+};
+
+const useStyles = makeStyles({
+    rating1: {
+      width: 200,
+      display: 'flex',
+      alignItems: 'center',
+    },
+  });
 
 class UserSurvey extends Component {  
 
@@ -41,6 +60,10 @@ class UserSurvey extends Component {
     this.setState({rating: nextValue});
   }
 
+  starClick = (value) => {
+    this.setState({rating: value});
+  }
+
   render() {
     const { rating } = this.state;
 
@@ -50,12 +73,21 @@ class UserSurvey extends Component {
 
           {/* Survey Question*/}
           <h1>Question: {this.props.question}</h1>
-          <StarRatingComponent 
-            name="rate1" 
-            starCount={5}
-            value={rating}
-            onStarClick={this.onStarClick.bind(this)}
-          />
+          <Box component="fieldset" mb={3} borderColor="transparent">
+            <Rating
+              name="hover-tooltip"
+              value={rating}
+              precision={0.5}
+              size={"large"}
+              IconContainerComponent={IconContainer}
+              onChange={(event, newValue) => {
+                this.starClick(newValue)
+                // props.starClick(newValue)
+                // this.props.starClick(newValue)
+                console.log("Changed from UserSurvey file")
+              }}
+            />
+          </Box>     
           <h2>Rating from state: {rating}</h2>
 
           <div style={
