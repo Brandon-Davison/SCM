@@ -6,12 +6,13 @@ const ms = require('pretty-ms')
 class TimerTrigger extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { seconds: 0, scrollPos: 0 };
+        this.state = { seconds: 0, scrollPos: 0, avgPos: 0.0 };
       }
 
       tick() {
         this.setState(prevState => ({
-          seconds: prevState.seconds + 1
+          seconds: prevState.seconds + 1,
+          avgPos: prevState.avgPos + window.pageYOffset
         }));
       }
 
@@ -36,11 +37,13 @@ class TimerTrigger extends React.Component {
 
         console.log("docHeight: " + docHeight)
         console.log("scrollPos: " + window.pageYOffset)
+        console.log("AvgPos: " + this.state.avgPos / this.state.seconds)
+
         console.log("")
       }
 
       render() {
-          let survey = (this.state.seconds >= this.props.timerLength) ? <WebsiteModal id={this.props.id}></WebsiteModal> : null
+          let survey = (this.state.seconds >= this.props.timerLength && (this.state.avgPos / this.state.seconds) > 500) ? <WebsiteModal id={this.props.id}></WebsiteModal> : null
 
         return (
           <div>
