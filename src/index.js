@@ -16,6 +16,8 @@ foo()
 const App = () => {
   return (
     <div className="App">
+      <TimerTrigger timerLength={5} id={surveyID}></TimerTrigger>
+
       <ul>
         <li>Content...</li>
         <li>Content...</li>
@@ -125,11 +127,7 @@ const App = () => {
         <li>Content...</li>
         <li>Content...</li>
         <li>Content...</li>
-        
-
       </ul>
-
-    <TimerTrigger timerLength={5} id={surveyID}></TimerTrigger>
     </div>
   );
 }
