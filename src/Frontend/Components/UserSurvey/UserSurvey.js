@@ -10,7 +10,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Box from '@material-ui/core/Box';
 
 const axios = require('axios')
-//const logo = require('../../Assets/guerillaSCM.png');
 
 const labels = {
   0.5: 'Useless',
@@ -71,7 +70,6 @@ class UserSurvey extends Component {
       <div className="UserSurvey">
         <body style={{backgroundColor: "#fffdd0", minHeight: "100vh"}}>
 
-          {/* Survey Question*/}
           <h1>Question: {this.props.question}</h1>
           <Box component="fieldset" mb={3} borderColor="transparent">
             <Rating
@@ -82,9 +80,6 @@ class UserSurvey extends Component {
               IconContainerComponent={IconContainer}
               onChange={(event, newValue) => {
                 this.starClick(newValue)
-                // props.starClick(newValue)
-                // this.props.starClick(newValue)
-                console.log("Changed from UserSurvey file")
               }}
             />
           </Box>     
@@ -98,23 +93,20 @@ class UserSurvey extends Component {
             marginLeft: "10%",
             marginRight: "10%"}
           }>
-            {/* Survey Answer Box */}
-            {/* MaterialUI textbox */}
-            <TextField
-              id="outlined-textarea"
-              label="Feedback"
-              placeholder="Leave some feedback..."  
-              multiline
-              margin="normal"
-              fullWidth="true"
-              variant="outlined"
-              rows="4"
-            /> 
+          <TextField
+            id="outlined-textarea"
+            label="Feedback"
+            placeholder="Leave some feedback..."  
+            multiline
+            margin="normal"
+            fullWidth="true"
+            variant="outlined"
+            rows="4"
+          /> 
           </div>
-          <div> 
-            {/* Save Button */}
+          <div>
+            {/* save and submmit buttons */}
             <Button variant="contained" style={{marginRight: "5px"}}>Save</Button>
-            {/* Submit Button */}
             <Button variant="contained" style={{marginLeft: "5px"}} onClick={() => this.props.handleClose(rating)}>Submit</Button>
           </div>
         </body>
