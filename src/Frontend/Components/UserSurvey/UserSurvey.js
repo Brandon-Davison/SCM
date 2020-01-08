@@ -12,16 +12,11 @@ import Box from '@material-ui/core/Box';
 const axios = require('axios')
 
 const labels = {
-  0.5: 'Useless',
-  1: 'Useless+',
-  1.5: 'Poor',
-  2: 'Poor+',
-  2.5: 'Ok',
-  3: 'Ok+',
-  3.5: 'Good',
-  4: 'Good+',
-  4.5: 'Excellent',
-  5: 'Excellent+',
+  1: 'Useless',
+  2: 'Poor',
+  3: 'Ok',
+  4: 'Good',
+  5: 'Excellent',
 };
 
 function IconContainer(props) {
@@ -75,7 +70,6 @@ class UserSurvey extends Component {
             <Rating
               name="hover-tooltip"
               value={rating}
-              precision={0.5}
               size={"large"}
               IconContainerComponent={IconContainer}
               onChange={(event, newValue) => {
