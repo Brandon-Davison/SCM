@@ -49,10 +49,15 @@ export default function TransitionsModal(props) {
   }
   update(survId)
 
+  /**
+   * Handles closing the website modal after a user submits their feedback or exits.
+   * 
+   * @param {integer} starCount Ratings 1-5 are saved; A -1 signals exiting the modal.
+   * 
+   */
   const handleClose = (starCount) => {
-    console.log("The param is: " + starCount)
-
-    let surveyResult = JSON.stringify(
+    if (starCount > 0 && starCount <= 5) {
+      let surveyResult = JSON.stringify(
       {
         answers:
         [
@@ -62,14 +67,13 @@ export default function TransitionsModal(props) {
                 stars: starCount
             }
         ] 
+      }
+      )
+      var request = new XMLHttpRequest();
+      request.open('POST', 'http://localhost:3005/api/response/survey/' + survId, true);
+      request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+      request.send(surveyResult);
     }
-    )
-
-    var request = new XMLHttpRequest();
-    request.open('POST', 'http://localhost:3005/api/response/survey/' + survId, true);
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(surveyResult);
-
     setOpen(false);
   };
 

@@ -100,7 +100,7 @@ class UserSurvey extends Component {
           </div>
           <div>
             {/* save and submmit buttons */}
-            <Button variant="contained" style={{marginRight: "5px"}}>Save</Button>
+            <Button variant="contained" style={{marginRight: "5px"}} onClick={() => this.props.handleClose(-1)}>Close</Button>
             <Button variant="contained" style={{marginLeft: "5px"}} onClick={() => this.props.handleClose(rating)}>Submit</Button>
           </div>
         </body>
