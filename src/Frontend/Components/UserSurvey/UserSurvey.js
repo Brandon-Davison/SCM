@@ -77,8 +77,6 @@ class UserSurvey extends Component {
               }}
             />
           </Box>     
-          <h2>Rating from state: {rating}</h2>
-
           <div style={
             {width: "80%",
             display: "flex",
