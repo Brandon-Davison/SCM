@@ -1,5 +1,5 @@
 import WebsiteModal from '../WebsiteModal/WebsiteModal';
-import './'
+import './TimerTrigger';
 
 const React = require('react')
 const ms = require('pretty-ms')

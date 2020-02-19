@@ -79,7 +79,7 @@ export default function TransitionsModal(props) {
 
   return (      
     <div>
-      <Modal
+      <Modal style={{color: "red"}}
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
