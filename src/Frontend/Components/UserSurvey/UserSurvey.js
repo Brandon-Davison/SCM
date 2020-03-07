@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import scmLogo from '../../Assets/guerillaSCM.png';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { textAlign } from '@material-ui/system';

@@ -79,7 +79,7 @@ export default function TransitionsModal(props) {
 
   return (      
     <div>
-      <Modal style={{color: "red"}}
+      <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
@@ -93,7 +93,8 @@ export default function TransitionsModal(props) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-             <UserSurvey question={surveyQuestions} handleClose={handleClose}/>         
+            <h2 id="transition-modal-title">Transition modal</h2>
+            <p id="transition-modal-description">react-transition-group animates me.</p>
           </div>
         </Fade>
       </Modal>
