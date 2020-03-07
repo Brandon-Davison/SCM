@@ -32,11 +32,17 @@ IconContainer.propTypes = {
 };
 
 const useStyles = makeStyles({
-    rating1: {
+    UserSurvey: {
       width: 200,
+      height: 250,
       display: 'flex',
       alignItems: 'center',
     },
+    centerIT: {
+      alignContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center'
+    }
   });
 
 class UserSurvey extends Component {  
@@ -61,29 +67,26 @@ class UserSurvey extends Component {
     const { rating } = this.state;
 
     return (
-      <div className="UserSurvey">
-        <body style={{backgroundColor: "#fffdd0", minHeight: "100vh"}}>
+      <div>
+        <body style={{backgroundColor: "white", minHeight: "25vh"}}>
 
           <h1>Question: {this.props.question}</h1>
-          <Box component="fieldset" mb={3} borderColor="transparent">
-            <Rating
+          <Box component="fieldset" mb={3} borderColor="transparent" className = "centerIT">
+            <div className="centerIT">
+              <Rating
+              className="centerIT"
               name="hover-tooltip"
               value={rating}
               size={"large"}
+              alignItems="center"
               IconContainerComponent={IconContainer}
               onChange={(event, newValue) => {
                 this.starClick(newValue)
               }}
             />
+            </div>
+         
           </Box>     
-          <div style={
-            {width: "80%",
-            display: "flex",
-            marginTop: "10px",
-            marginBottom: "10px",
-            marginLeft: "10%",
-            marginRight: "10%"}
-          }>
           <TextField
             id="outlined-textarea"
             label="Feedback"
@@ -94,7 +97,6 @@ class UserSurvey extends Component {
             variant="outlined"
             rows="4"
           /> 
-          </div>
           <div>
             {/* save and submmit buttons */}
             <Button variant="contained" style={{marginRight: "5px"}} onClick={() => this.props.handleClose(-1)}>Close</Button>
